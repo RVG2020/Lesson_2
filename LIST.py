@@ -27,7 +27,7 @@ for i in range(0, len(text_s)):
 #print('количество знаков припинани€=', S,'количество знаков =', SS,'сумма знаков = ', S+SS)
 
 # delete punctuation
-text_s = text_s.replace('!', ' ').replace(',', ' ').replace('?', ' ').replace('(', ' ').replace(')', ' ').replace('.', ' ').replace('Ч', ' ').replace('ї', ' ').replace(':', ' ').replace('Ђ', ' ')
+text_s = text_s.replace('!', ' ').replace(',', ' ').replace('?', ' ').replace('(', ' ').replace(')', ' ').replace('.', ' ').replace('Ч', ' ').replace('ї', ' ').replace(':', ' ').replace('Ђ', ' ').replace('\n', ' ').replace(';', ' ')
 #print(text_s)
 
 print('2) сформировать list со словами (split);')
@@ -37,16 +37,15 @@ print('2) сформировать list со словами (split);')
 #list_from_str=str_form.split('8')
 #print(str_form, list_from_str, type(str_form), type(list_from_str))
 #print(text_s.split(' '))
-list_words=text_s.split(' ')
+list_words=text_s.split()
 print(list_words)
 
 print('нужно еще удалить пробелы?')
-
 m=0
 for i in range(0,len(list_words)):
     if(list_words[i]==''):
        m=m+1
-#print(m)
+print('теперь это нет смысла делать - split убил пробелы =', m)
 list_space = [len(list_words)-m for c in (len(list_words)-m)*' ']
 #print('space=', m, len(list_words), len(list_space), len(list_words)-len(list_space))
 #print(list_space)
@@ -61,7 +60,7 @@ for i in range(1, len(list_words)):
               list_space[kk] = str(list_words[i])
               #print('проверка', list_words[i], list_space[kk], i, kk, len(list_space))
 print(list_space)
-#список без элементов смпробелми
+#список без элементов с пробелами
 
 print('3.1) привести все слова к нижнему регистру (map);')
 #нижний регистр
@@ -101,7 +100,8 @@ print('4) вывести 5 наиболее часто встречающихс€ слов (sort)')
 #print(list_space)
 
 sort_list=list(dict_words.items())
-sort_list.sort(key=lambda i: i[1],reverse=True)
+sort_list.sort(key=lambda i: i[1] ,reverse=True)
+
 print(sort_list)
 print('5 наиболее встречающихс€', sort_list[:5])
 
