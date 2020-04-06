@@ -72,7 +72,7 @@ def F_maxrepeat(List_Repeat):
            # запоминаем самое повторяемое имя
     Repeat = RR
     return (Repeat)
-#может есть проще поиск ? Минус алгоритма ищет первое часто имя?
+#может есть проще поиск ? Минус алгоритма ищет первое частоe имя?
 
 List_Repeat = ['Vasj0', 'Vasj7', 'Vas6', 'Vas2', 'Vas', 'Vasj7', 'Vas', 'Vasj8', 'Vas65', 'Vasj1', 'Vasj0', 'Vasj12', 'Vasj13', 'Vasj14', 'Vasj15', 'Vasj16', 'Vas', 'Vas96', 'Vasj6', 'Vasj0']
 print("Вариант  Ответ", F_maxrepeat(List_Repeat))
