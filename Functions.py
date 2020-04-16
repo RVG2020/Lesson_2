@@ -83,11 +83,12 @@ print("Вариант  Ответ", F_maxrepeat(List_Repeat))
 
 print('#3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F.')
 
-def F_maxrepeat2(List_Repeat2):
-    temp2 = List_Repeat2
+
+def F_maxrepeat_2(List_Repeat_2):
+    temp2 = List_Repeat_2
     #temp2 = sorted(List_Repeat2, key = lambda x: x[0])
-    print(temp2)
-    Min = len(List_Repeat2)
+    #print(temp2)
+    Min = len(List_Repeat_2)
     h=0
     Ren = 0
     for h in range(h, (len(temp2))-1):
@@ -110,8 +111,45 @@ def F_maxrepeat2(List_Repeat2):
     return (Repeat2)
 
 #может есть проще поиск? минус алгоритма он ищет первое редкое. нужно усложнять алгоритм и выводить несколько редких?
+List_Repeat_2 = ['Vasj0', 'Vasj0', 'Петя', 'jasj0', 'jasj5', 'asj7', 'Vasj1', 'Vasj8', 'j0', 'Vasj1', 'j0', 'j12', 'Vasj13', 'j14', 'Vasj15', 'Vasj16', 'Vasj5', 'Vasj18', 'Vasj6', 'Vasj0']
+print("Вариант  Ответ", F_maxrepeat_2(List_Repeat_2))
+
+
+#print('Далее Оптимальное решение')
+
+'''
+Роман, приветствую,
+результаты правильные, с точки зрения более оптимизированных решений, на примере 3го задания можно такое написать
+Нам же нужные первые буквы имен, при этом самые редкие
+first_letters = [i[0] for i in List_Repeat2] # получаем их список перебором через доступ к текущему имени[первой букве]
+temp_dict = {i: first_letters.count(i) for i in first_letters} # далее составляем словарь частотности этих букв в списке
+rare_letter = list(temp_dict.items()) #преобразовываем в список кортежей-пар, чтобы можно было отсортировать
+rare_letter.sort(key=lambda i: i[1]) # сортируем по кол-ву повторений в порядке возрастания
+print(rare_letter[0]) #выдергиваем самый редкий(первый) элемент в отсортированном по частнотности списке букв
+'''
+
+
+
+def F_maxrepeat2(List_Repeat2):
+    temp2 = List_Repeat2
+    first_letters = [i[0] for i in List_Repeat2]  # получаем их список перебором через доступ к текущему имени[первой букве]
+    #print(first_letters)
+    temp_dict = {i: first_letters.count(i) for i in first_letters}  # далее составляем словарь частотности этих букв в списке
+    #print(temp_dict)
+    rare_letter = list(temp_dict.items())  # преобразовываем в список кортежей-пар, чтобы можно было отсортировать
+    #print(rare_letter)
+    rare_letter.sort(key=lambda i: i[1])  # сортируем по кол-ву повторений в порядке возрастания
+    #print(rare_letter)
+    #rare_letter0 = rare_letter1[0]
+    #print(rare_letter[0])  # выдергиваем самый редкий(первый) элемент в отсортированном по частнотности списке букв
+    first_list= list(rare_letter[0])
+    first_paramentr = (first_list[0])
+    #print(first_paramentr)
+    #print(first_list)
+    return(first_paramentr)
+
 List_Repeat2 = ['Vasj0', 'Vasj0', 'Петя', 'jasj0', 'jasj5', 'asj7', 'Vasj1', 'Vasj8', 'j0', 'Vasj1', 'j0', 'j12', 'Vasj13', 'j14', 'Vasj15', 'Vasj16', 'Vasj5', 'Vasj18', 'Vasj6', 'Vasj0']
-print("Вариант  Ответ", F_maxrepeat2(List_Repeat2))
+print("Оптимальный вариант  Ответ", F_maxrepeat2(List_Repeat2))
 
 
 #PRO:
